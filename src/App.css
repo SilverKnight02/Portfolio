@@ -414,6 +414,15 @@ body.light .project-link.secondary {
   }
 }
 
+@media (max-width: 768px) {
+    .contact-section, .contact-box {
+        width: 90% !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        padding: 15px !important;
+    }
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
