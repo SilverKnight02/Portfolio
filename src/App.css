@@ -411,17 +411,34 @@ body.light .project-link.secondary {
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
+    /* Keep full width for background */
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Individual boxes */
+  .contact-grid > div {
+    width: 85% !important; /* Boxes are 85% of screen */
+    max-width: 380px !important;
+    margin: 15px auto !important;
+    padding: 20px !important;
+  }
+  
+  /* Text content */
+  .contact-grid h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  .contact-grid p, 
+  .contact-grid a {
+    font-size: 14px !important;
+    word-break: break-word !important;
   }
 }
 
-@media (max-width: 768px) {
-    .contact-section, .contact-box {
-        width: 90% !important;
-        max-width: 400px !important;
-        margin: 0 auto !important;
-        padding: 15px !important;
-    }
-}
+
 
 .contact-info {
   display: flex;
