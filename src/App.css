@@ -400,6 +400,40 @@ body.light .project-link.secondary {
   box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
 }
 
+/* Project Links Styles */
+.project-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.project-link {
+  padding: 10px 20px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.project-link.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-dark);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+body.light .project-link.secondary {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text-light);
+}
+
+.project-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
+}
+
 /* Contact Section */
 .contact-grid {
   display: grid;

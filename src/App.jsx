@@ -318,130 +318,119 @@ function App() {
         );
       
       case 'projects':
-        const projects = [
-          // {
-          //   title: 'E-Commerce Platform',
-          //   description: 'A full-featured online shopping platform with React frontend and Node.js backend',
-          //   tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-          //   emoji: '🛒',
-          //   liveLink:  ,
-          //   githubLink:
-          // },
-          // {
-          //   title: 'Task Management App',
-          //   description: 'Collaborative task management application with real-time updates',
-          //   tech: ['React', 'Firebase', 'Material-UI'],
-          //   emoji: '📋'
-          // },
-          // {
-          //   title: 'Weather Dashboard',
-          //   description: 'Real-time weather application with interactive maps and forecasts',
-          //   tech: ['React', 'OpenWeather API', 'Chart.js'],
-          //   emoji: '☁️'
-          // },
-          {
-            title: 'Portfolio Website',
-            description: 'Responsive portfolio website with 3D animations and dark theme',
-            tech: ['React', 'Three.js', 'Framer Motion'],
-            emoji: '💻',
-            liveLink: "https://silverknight02.github.io/Portfolio/"
-          }
-        ];
+  const projects = [
+    {
+      title: 'Portfolio Website',
+      description: 'Responsive portfolio website with 3D animations and dark theme',
+      tech: ['React', 'Three.js', 'Framer Motion'],
+      emoji: '💻',
+      githubLink: 'https://github.com/SilverKnight02/Portfolio',
+      liveLink: 'https://silverknight02.github.io/Portfolio/'
+    }
+  ];
 
-        return (
-          <motion.div
-            key="projects"
-            variants={containerVariants}
+  return (
+    <motion.div
+      key="projects"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="section-content"
+    >
+      <motion.h2 variants={itemVariants}>My Projects</motion.h2>
+      
+      <motion.p 
+        variants={itemVariants}
+        className="section-description"
+      >
+        Here are some of my recent projects that showcase my skills and experience.
+      </motion.p>
+      
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <motion.div 
+            key={project.title}
+            className="project-card"
+            variants={cardVariants}
+            custom={index}
             initial="hidden"
             animate="visible"
-            className="section-content"
+            whileHover="hover"
+            whileTap="tap"
+            transition={{ delay: index * 0.15 }}
           >
-            <motion.h2 variants={itemVariants}>My Projects</motion.h2>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="section-description"
+            <motion.div 
+              className="project-image"
+              whileHover={{ 
+                scale: 1.1,
+                rotate: 5,
+                transition: { duration: 0.3 }
+              }}
             >
-              Here are some of my recent projects that showcase my skills and experience.
-            </motion.p>
+              <motion.div 
+                className="project-emoji"
+                animate={floatingAnimation}
+              >
+                {project.emoji}
+              </motion.div>
+            </motion.div>
             
-            <div className="projects-grid">
-              {projects.map((project, index) => (
-                <motion.div 
-                  key={project.title}
-                  className="project-card"
-                  variants={cardVariants}
-                  custom={index}
-                  initial="hidden"
-                  animate="visible"
-                  whileHover="hover"
-                  whileTap="tap"
-                  transition={{ delay: index * 0.15 }}
-                >
-                  <motion.div 
-                    className="project-image"
-                    whileHover={{ 
-                      scale: 1.1,
-                      rotate: 5,
-                      transition: { duration: 0.3 }
-                    }}
+            <div className="project-content">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              
+              <div className="project-tech">
+                {project.tech.map((tech, techIndex) => (
+                  <motion.span 
+                    key={tech}
+                    className="tech-tag"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 + techIndex * 0.1 }}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <motion.div 
-                      className="project-emoji"
-                      animate={floatingAnimation}
-                    >
-                      {project.emoji}
-                    </motion.div>
-                  </motion.div>
-                  
-                  <div className="project-content">
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    
-                    <div className="project-tech">
-                      {project.tech.map((tech, techIndex) => (
-                        <motion.span 
-                          key={tech}
-                          className="tech-tag"
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.5 + techIndex * 0.1 }}
-                          whileHover={{ scale: 1.1, y: -2 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          {tech}
-                        </motion.span>
-                      ))}
-                    </div>
-                    
-                    {/* <div className="project-links">
-                      <motion.button 
-                        className="project-link"
-                        whileHover={{ 
-                          scale: 1.05,
-                          boxShadow: "0 5px 15px rgba(138, 43, 226, 0.4)"
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Live Demo
-                      </motion.button>
-                      <motion.button 
-                        className="project-link secondary"
-                        whileHover={{ 
-                          scale: 1.05,
-                          boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)"
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        View Code
-                      </motion.button>
-                    </div> */}
-                  </div>
-                </motion.div>
-              ))}
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+              
+              {/* THIS IS THE FIX - Add project links */}
+              <div className="project-links">
+                <motion.a 
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 5px 15px rgba(138, 43, 226, 0.4)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Live Demo
+                </motion.a>
+                
+                {/* <motion.a 
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link secondary"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  View Code
+                </motion.a> */}
+              </div>
             </div>
           </motion.div>
-        );
+        ))}
+      </div>
+    </motion.div>
+  );
       
       case 'contact':
         return (
