@@ -179,11 +179,11 @@ function App() {
                   Highly skilled front-end developer with a passion for crafting responsive, user-friendly interfaces. Proficient in HTML, CSS, JavaScript, and modern frameworks like React. Dedicated to delivering high-quality solutions that exceed expectations.
                 </motion.p>
 
-                <motion.button
+                <motion.a
                         href="https://github.com/SilverKnight02"  // Add your project URL here
                         target="_blank"  // Opens in new tab
                         rel="noopener noreferrer"  // Security for external links
-                        className="project-link github "
+                        className="project-link github"
                         whileHover={{ 
                           scale: 1.05,
                           boxShadow: "0 5px 15px rgba(138, 43, 226, 0.4)"
@@ -191,7 +191,7 @@ function App() {
                         whileTap={{ scale: 0.95 }}
                       >
                         GitHub
-                </motion.button>  
+                </motion.a>  
                 
                 {/* <motion.p variants={itemVariants}>
                   My journey in tech started with a Computer Science degree and has evolved through various roles in startups and tech companies. I love turning complex problems into simple, beautiful designs.

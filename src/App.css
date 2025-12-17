@@ -242,10 +242,6 @@ body.light .stat {
   font-size: 0.9rem;
 }
 
-.project-link.github{
-  margin: 20px 0;
-}
-
 /* Skills Section */
 .skills-grid {
   display: grid;
