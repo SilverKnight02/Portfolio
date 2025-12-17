@@ -343,7 +343,8 @@ function App() {
             title: 'Portfolio Website',
             description: 'Responsive portfolio website with 3D animations and dark theme',
             tech: ['React', 'Three.js', 'Framer Motion'],
-            emoji: '💻'
+            emoji: '💻',
+            liveLink: "https://silverknight02.github.io/Portfolio/"
           }
         ];
 
