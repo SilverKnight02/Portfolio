@@ -1,6 +1,23 @@
 import React, { useState } from 'react';
 import './App.css';
 import profile from './images/profile.jpeg';
+import html from './images/html.png';
+import css from './images/css.png';
+import js from './images/js.png';
+import react from './images/react.png';
+import ui from './images/ui.png';
+import python from './images/python.png';
+import java from './images/java.png';
+import git from './images/git.png';
+import vs from './images/vs.png';
+import prompt from './images/prompt.png';
+import power from './images/powerbi.png';
+import sql from './images/sql.png';
+import excel from './images/excel.png';
+import project1 from './images/portfolio.png';
+import project2 from './images/uiux.jpeg';
+import resume from '../public/SaiparansothiResume.pdf';
+
 
 // Simple data — edit these to update your content
 const NAV_SECTIONS = [
@@ -11,16 +28,19 @@ const NAV_SECTIONS = [
 ];
 
 const SKILLS = [
-  { name: 'HTML', level: 95, color: '#fe00db', icon: '📝' },
-  { name: 'CSS', level: 85, color: '#5000fe', icon: '🎨' },
-  { name: 'JavaScript', level: 60, color: '#00bdfe', icon: '🤖' },
-  { name: 'React', level: 60, color: '#00fe3c', icon: '⚛️' },
-  { name: 'UI/UX Design', level: 60, color: '#ffffff', icon: '🎨' },
-  { name: 'Python', level: 40, color: '#ff4d5e', icon: '🐍' },
-  { name: 'Java', level: 40, color: '#e1fe00', icon: '☕' },
-  { name: 'Git & GitHub', level: 70, color: '#00fed4', icon: '🐈‍⬛' },
-  { name: 'Visual Studio', level: 90, color: '#ff4d5e', icon: '⚙️' },
-  { name: 'Prompt Engineering', level: 75, color: '#fe8300', icon: '⚙️' }
+  { name: 'HTML', level: 95, color: '#fe00db', icon: html },
+  { name: 'CSS', level: 85, color: '#5000fe', icon: css },
+  { name: 'JavaScript', level: 60, color: '#00bdfe', icon: js },
+  { name: 'React', level: 60, color: '#00fe3c', icon: react },
+  { name: 'UI/UX Design', level: 60, color: '#ffffff', icon: ui },
+  { name: 'Python', level: 40, color: '#ff4d5e', icon: python },
+  { name: 'Java', level: 40, color: '#e1fe00', icon: java },
+  { name: 'Git & GitHub', level: 70, color: '#00fed4', icon: git },
+  { name: 'Visual Studio', level: 90, color: '#ff5d6e', icon: vs },
+  { name: 'Prompt Engineering', level: 75, color: '#fe8300', icon: prompt },
+  { name: 'Power Bi', level: 75, color: '#fe8300', icon: power },
+  { name: 'SQL', level: 75, color: '#fe8300', icon: sql },
+  { name: 'Excel', level: 75, color: '#fe8300', icon: excel },
 ];
 
 const PROJECTS = [
@@ -28,9 +48,18 @@ const PROJECTS = [
     title: 'Portfolio Website',
     description: 'Responsive personal portfolio built to showcase my skills and projects.',
     tech: ['React', 'CSS'],
-    emoji: '💻',
+    image: project1,
     githubLink: 'https://github.com/SilverKnight02/Portfolio',
     liveLink: 'https://silverknight02.github.io/Portfolio/'
+  },
+
+    {
+    title: 'Personal Finance & Expense Tracker UI',
+    description: 'A responsive mobile UI for a personal finance app, featuring daily routine tracking, detailed spending reports, and an easy-to-use expense entry system.',
+    tech: ['Figma'],
+    image: project2,
+    // githubLink: 'https://github.com/SilverKnight02/Portfolio',
+    liveLink: 'https://www.figma.com/proto/s6mq4WZU4yNogIpmeZ7qIr/Sample?node-id=0-1&t=nmB9vn7Ba5A4VTid-1'
   }
 ];
 
@@ -70,6 +99,12 @@ function AboutSection() {
             I care about clean structure and interfaces that are simple to use, and I enjoy
             turning ideas into working, polished products.
           </p>
+          <a href={resume}
+             download="SaiparansothiResume.pdf"
+             className="btn btn-outline"
+             >
+              📝Download Resume
+          </a>
         </div>
       </div>
     </div>
@@ -87,7 +122,9 @@ function SkillsSection() {
       <div className="skills-grid">
         {SKILLS.map((skill) => (
           <div key={skill.name} className="skill-card" style={{ '--skill-color': skill.color }}>
-            <div className="skill-icon">{skill.icon}</div>
+            <div className="skill-icon">
+              <img src={skill.icon} alt={`${skill.name} icon`} />
+            </div>
             <div className="skill-card-top">
               <h3>{skill.name}</h3>
               <span className="skill-level" style={{ color: skill.color }}>{skill.level}%</span>
@@ -117,7 +154,7 @@ function ProjectsSection() {
         {PROJECTS.map((project) => (
           <div key={project.title} className="project-card">
             <div className="project-banner">
-              <span className="project-emoji">{project.emoji}</span>
+              <img src={project.image} alt={project.title} className="project-image" />
             </div>
             <div className="project-content">
               <h3>{project.title}</h3>
