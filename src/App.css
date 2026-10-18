@@ -585,7 +585,7 @@ h2::after {
 }
 
 .copyright {
-  color: var(--text-muted);
+  color: white;
   font-size: 0.85rem;
 }
 

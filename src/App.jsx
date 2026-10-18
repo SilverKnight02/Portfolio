@@ -278,7 +278,7 @@ function App() {
     <div className="app">
       <div className="portfolio-container">
         <header className="header">
-          <div className="logo">✦ PORTFOLIO</div>
+          <div className="logo">PORTFOLIO</div>
           <nav className="nav-buttons">
             {NAV_SECTIONS.map((section) => (
               <button
