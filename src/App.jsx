@@ -32,15 +32,15 @@ const SKILLS = [
   { name: 'CSS', level: 85, color: '#5000fe', icon: css },
   { name: 'JavaScript', level: 60, color: '#00bdfe', icon: js },
   { name: 'React', level: 60, color: '#00fe3c', icon: react },
-  { name: 'UI/UX Design', level: 60, color: '#ffffff', icon: ui },
+  { name: 'UI/UX Design', level: 60, color: 'black', icon: ui },
   { name: 'Python', level: 40, color: '#ff4d5e', icon: python },
   { name: 'Java', level: 40, color: '#e1fe00', icon: java },
   { name: 'Git & GitHub', level: 70, color: '#00fed4', icon: git },
   { name: 'Visual Studio', level: 90, color: '#ff5d6e', icon: vs },
   { name: 'Prompt Engineering', level: 75, color: '#fe8300', icon: prompt },
-  { name: 'Power Bi', level: 75, color: '#fe8300', icon: power },
-  { name: 'SQL', level: 75, color: '#fe8300', icon: sql },
-  { name: 'Excel', level: 75, color: '#fe8300', icon: excel },
+  { name: 'Power Bi', level: 60, color: 'violet', icon: power },
+  { name: 'SQL', level: 60, color: 'blue', icon: sql },
+  { name: 'Excel', level: 65, color: 'green', icon: excel },
 ];
 
 const PROJECTS = [
