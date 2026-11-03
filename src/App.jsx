@@ -192,7 +192,39 @@ function ProjectsSection() {
   );
 }
 
+const WEB3FORMS_KEY = 'aa2e6089-b15b-49d0-a543-18cc4ca1d7bc';
+
 function ContactSection() {
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus('sending');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'New message from your portfolio',
+          name: form.name.value,
+          email: form.email.value,
+          message: form.message.value,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="section-content">
       <h2>Contact</h2>
@@ -218,25 +250,30 @@ function ContactSection() {
           </div>
         </div>
 
-        <form
-          className="contact-form"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Your Name</label>
-            <input id="name" type="text" placeholder="John Doe" />
+            <input id="name" name="name" type="text" placeholder="John Doe" required />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
-            <input id="email" type="email" placeholder="john@example.com" />
+            <input id="email" name="email" type="email" placeholder="john@example.com" required />
           </div>
           <div className="form-group">
             <label htmlFor="message">Your Message</label>
-            <textarea id="message" rows="4" placeholder="Tell me about your project..." />
+            <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required />
           </div>
-          <button type="submit" className="btn btn-solid submit-btn">
-            ✉️ Send Message
+          <button type="submit" className="btn btn-solid submit-btn" disabled={status === 'sending'}>
+            {status === 'sending' ? 'Sending...' : '✉️ Send Message'}
           </button>
+          {status === 'success' && (
+            <p style={{ color: '#4ade80', marginTop: '0.75rem' }}>Message sent! I'll get back to you soon.</p>
+          )}
+          {status === 'error' && (
+            <p style={{ color: '#f87171', marginTop: '0.75rem' }}>
+              Something went wrong. Please email me directly at saiparansothi02@gmail.com.
+            </p>
+          )}
         </form>
       </div>
     </div>
