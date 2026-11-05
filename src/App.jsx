@@ -16,6 +16,8 @@ import sql from './images/sql.png';
 import excel from './images/excel.png';
 import project1 from './images/portfolio.png';
 import project2 from './images/uiux.jpeg';
+import dashboardImg from './images/dashboard.png';
+import dashboardImg1 from './images/dashboard1.png';
 import resume from '../public/SaiparansothiResume.pdf';
 
 
@@ -58,9 +60,27 @@ const PROJECTS = [
     description: 'A responsive mobile UI for a personal finance app, featuring daily routine tracking, detailed spending reports, and an easy-to-use expense entry system.',
     tech: ['Figma'],
     image: project2,
-    // githubLink: 'https://github.com/SilverKnight02/Portfolio',
+    githubLink: 'https://www.figma.com/proto/s6mq4WZU4yNogIpmeZ7qIr/Sample?node-id=0-1&t=nmB9vn7Ba5A4VTid-1',
     liveLink: 'https://www.figma.com/proto/s6mq4WZU4yNogIpmeZ7qIr/Sample?node-id=0-1&t=nmB9vn7Ba5A4VTid-1'
-  }
+  },
+
+  {
+  title: 'AI Usage and Impact: Students vs Professionals',
+  description: 'Power BI dashboard analyzing 288 survey responses on AI tool usage. I cleaned a messy Kaggle dataset in Power Query (removed 12 duplicates, standardized labels, converted text to numbers) and built DAX measures and visuals to compare satisfaction, productivity and time saved across tools, purposes, user types and paid vs free use.',
+  tech: ['Power BI', 'Power Query', 'DAX'],
+  image: dashboardImg, // your dashboard.png
+  githubLink: 'https://github.com/SilverKnight02/Data-Analysis-with-AI-Usage-and-Impact.git',
+  liveLink: 'https://github.com/SilverKnight02/Data-Analysis-with-AI-Usage-and-Impact.git',
+},
+
+  {
+  title: 'Sales Dashboard (Power BI Practice Project)',
+  description: 'Power BI report built on a two-table sales dataset (200 orders, 40 products) using a star schema. I created DAX measures for sales, profit and quantity, KPI cards, monthly trend and combo charts, category breakdowns, a drill-down table, slicers and a tooltip page to practice data modelling and dashboard design.',
+  tech: ['Power BI', 'DAX', 'Excel'],
+  image: dashboardImg1,
+  githubLink: 'https://github.com/SilverKnight02/Data-Analysis-in-Sale-Data',
+  liveLink: 'https://github.com/SilverKnight02/Data-Analysis-in-Sale-Data',
+}
 ];
 
 const CONTACT_INFO = [
