@@ -18,6 +18,8 @@ import project1 from './images/portfolio.png';
 import project2 from './images/uiux.jpeg';
 import dashboardImg from './images/dashboard.png';
 import dashboardImg1 from './images/dashboard1.png';
+// import capstoneImg from './images/capstone.png'; // add the image, then uncomment
+import CaseStudy from './images/CaseStudy.png'; // add the image, then uncomment
 import resume from '../public/SaiparansothiResume.pdf';
 
 
@@ -46,12 +48,18 @@ const SKILLS = [
 ];
 
 const PROJECTS = [
-  {
-    title: 'Portfolio Website',
-    description: 'Responsive personal portfolio built to showcase my skills and projects.',
-    tech: ['React', 'CSS'],
-    image: project1,
-    githubLink: 'https://github.com/SilverKnight02/Portfolio',
+  // {
+    //   title: 'AI-Based Facial Recognition Attendance System',
+    //   description: 'Final-year capstone project: an attendance system that detects faces with MTCNN and recognizes them with FaceNet. It uses a Flask REST API with JWT authentication, a React/Vite frontend, a SQLAlchemy database (MySQL/SQLite) and ESP32-CAM hardware.',
+    //   tech: ['Python', 'Flask', 'FaceNet', 'React', 'ESP32-CAM'],
+    //   image: null // change to capstoneImg after adding the image
+    // },
+    {
+      title: 'Portfolio Website',
+      description: 'Responsive personal portfolio built to showcase my skills and projects.',
+      tech: ['React', 'CSS'],
+      image: project1,
+      githubLink: 'https://github.com/SilverKnight02/Portfolio',
     liveLink: 'https://silverknight02.github.io/Portfolio/'
   },
 
@@ -60,7 +68,6 @@ const PROJECTS = [
     description: 'A responsive mobile UI for a personal finance app, featuring daily routine tracking, detailed spending reports, and an easy-to-use expense entry system.',
     tech: ['Figma'],
     image: project2,
-    githubLink: 'https://www.figma.com/proto/s6mq4WZU4yNogIpmeZ7qIr/Sample?node-id=0-1&t=nmB9vn7Ba5A4VTid-1',
     liveLink: 'https://www.figma.com/proto/s6mq4WZU4yNogIpmeZ7qIr/Sample?node-id=0-1&t=nmB9vn7Ba5A4VTid-1'
   },
 
@@ -70,7 +77,6 @@ const PROJECTS = [
   tech: ['Power BI', 'Power Query', 'DAX'],
   image: dashboardImg, // your dashboard.png
   githubLink: 'https://github.com/SilverKnight02/Data-Analysis-with-AI-Usage-and-Impact.git',
-  liveLink: 'https://github.com/SilverKnight02/Data-Analysis-with-AI-Usage-and-Impact.git',
 },
 
   {
@@ -78,8 +84,15 @@ const PROJECTS = [
   description: 'Power BI report built on a two-table sales dataset (200 orders, 40 products) using a star schema. I created DAX measures for sales, profit and quantity, KPI cards, monthly trend and combo charts, category breakdowns, a drill-down table, slicers and a tooltip page to practice data modelling and dashboard design.',
   tech: ['Power BI', 'DAX', 'Excel'],
   image: dashboardImg1,
-  githubLink: 'https://github.com/SilverKnight02/Data-Analysis-in-Sale-Data',
-  liveLink: 'https://github.com/SilverKnight02/Data-Analysis-in-Sale-Data',
+  githubLink: 'https://github.com/SilverKnight02/Data-Analysis-in-Sale-Data'
+},
+
+ {
+  title: 'WhatsApp Concept Redesign (UX Case Study)',
+  description: 'Surveyed 26 people about everyday WhatsApp problems and designed seven concept fixes in Figma. The main fix targets expired files, which 22 of 26 respondents had experienced. Independent concept project, not affiliated with WhatsApp or Meta.',
+  tech: ['Figma', 'UI/UX', 'User Research'],
+  image: CaseStudy, // change to whatsappImg after adding the image
+  caseStudyLink: 'https://www.behance.net/gallery/258083929/WhatsApp-Concept-Redesign'
 }
 ];
 
@@ -167,15 +180,17 @@ function ProjectsSection() {
     <div className="section-content">
       <h2>Projects</h2>
       <p className="section-description">
-        A project that shows how I structure and build front-end interfaces.
+        Projects that show how I build front-end interfaces, design UIs and analyze data.
       </p>
 
       <div className="projects-grid">
         {PROJECTS.map((project) => (
           <div key={project.title} className="project-card">
-            <div className="project-banner">
-              <img src={project.image} alt={project.title} className="project-image" />
-            </div>
+            {project.image && (
+              <div className="project-banner">
+                <img src={project.image} alt={project.title} className="project-image" />
+              </div>
+            )}
             <div className="project-content">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
@@ -187,22 +202,21 @@ function ProjectsSection() {
               </div>
 
               <div className="project-links">
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-solid"
-                >
-                  🔗 Live Demo
-                </a>
-                <a
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline"
-                >
-                  🐈‍⬛ View Code
-                </a>
+                {project.caseStudyLink && (
+                  <a href={project.caseStudyLink} target="_blank" rel="noopener noreferrer" className="btn btn-solid">
+                    📄 Case Study
+                  </a>
+                )}
+                {project.liveLink && (
+                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-solid">
+                    🔗 Live Demo
+                  </a>
+                )}
+                {project.githubLink && (
+                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                    🐈‍⬛ View Code
+                  </a>
+                )}
               </div>
             </div>
           </div>
