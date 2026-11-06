@@ -20,6 +20,7 @@ import dashboardImg from './images/dashboard.png';
 import dashboardImg1 from './images/dashboard1.png';
 // import capstoneImg from './images/capstone.png'; // add the image, then uncomment
 import CaseStudy from './images/CaseStudy.png'; // add the image, then uncomment
+import Namer from './images/Namer.png';
 import resume from '../public/SaiparansothiResume.pdf';
 
 
@@ -60,8 +61,17 @@ const PROJECTS = [
       tech: ['React', 'CSS'],
       image: project1,
       githubLink: 'https://github.com/SilverKnight02/Portfolio',
-    liveLink: 'https://silverknight02.github.io/Portfolio/'
+      liveLink: 'https://silverknight02.github.io/Portfolio/'
   },
+
+  {
+  title: 'Chemical Formula Namer',
+  description: 'Type a chemical formula like H2O to instantly get its name, type and molar mass.',
+  tech: ['React', 'Vite', 'CSS'],
+  image: Namer,
+  githubLink: 'https://github.com/SilverKnight02/Chemical_Formula_Namer',
+  liveLink: 'https://silverknight02.github.io/Chemical_Formula_Namer/'
+},
 
     {
     title: 'Personal Finance & Expense Tracker UI',
